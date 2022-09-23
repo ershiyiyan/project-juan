@@ -2,15 +2,7 @@
   <div>
     <div class="box">
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li v-for="(index) in pages" :key="index.id" @click="jump(index.name)"></li>
       </ul>
     </div>
   </div>
@@ -20,9 +12,29 @@
 <script>
 export default {
   name:'hellow',
+  data(){
+    return{
+      pages:[
+        {id:"1",name:"blog"},
+        {id:"2",name:"visual"},
+        {id:"3",name:"game"},
+        {id:"4",name:"canvas"},
+        {id:"5",name:"juan"},
+        {id:"6",name:"video"},
+        {id:"7",name:""},
+        {id:"8",name:""},
+        {id:"9",name:""},
+      ]
+    }
+  },
   computed:{
   },
   methods:{
+    jump(name){
+      this.$router.push({
+        name
+      })
+    }
   },
   mounted(){
   }
